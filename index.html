@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SkillPath AI — Career & Hackathon Discovery Platform</title>
+    <!-- FIXED: CSS link moved to head with correct path -->
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FIXED: Added inline CSS to ensure home page is visible on load -->
+    <style>
+      /* Ensure home page is visible before JS loads */
+      .page {
+        display: none;
+      }
+      #home {
+        display: block;
+      }
+      .navbar {
+        display: flex;
+      }
+      .footer {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="logo">
+          <span class="logo-icon">🚀</span>
+          <h1>SkillPath<span class="logo-highlight">AI</span></h1>
+        </div>
+        <div class="nav-links" id="navLinks">
+          <a href="#home" class="nav-link active" data-page="home">Home</a>
+          <a href="#hackathon" class="nav-link" data-page="hackathon"
+            >What are Hackathons?</a
+          >
+          <a href="#field" class="nav-link" data-page="field"
+            >Find Your Field</a
+          >
+          <a href="#dashboard" class="nav-link" data-page="dashboard"
+            >Dashboard</a
+          >
+          <a href="#profile" class="nav-link" data-page="profile"
+            >Build Profile</a
+          >
+          <a href="#roadmap" class="nav-link" data-page="roadmap">AI Roadmap</a>
+          <a href="#project" class="nav-link" data-page="project"
+            >Project Ideas</a
+          >
+        </div>
+        <div class="nav-actions">
+          <button class="btn-secondary" id="themeToggle">
+            <i class="fas fa-moon"></i>
+          </button>
+          <button class="btn-primary" id="chatToggle">
+            <i class="fas fa-robot"></i> AI Assistant
+          </button>
+        </div>
+        <button class="menu-toggle" id="menuToggle">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- AI Chat Panel -->
+    <div class="chat-panel" id="chatPanel">
+      <div class="chat-header">
+        <h3><i class="fas fa-robot"></i> SkillPath AI Assistant</h3>
+        <button class="close-chat" id="closeChat">&times;</button>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="message ai-message">
+          <div class="message-content">
+            <strong>SkillPath AI:</strong> Hello! I'm here to help guide your
+            career and hackathon journey. What would you like to know?
+          </div>
+        </div>
+      </div>
+      <div class="chat-input">
+        <input
+          type="text"
+          id="chatInput"
+          placeholder="Ask me about careers, hackathons, or skills..."
+        />
+        <button id="sendMessage"><i class="fas fa-paper-plane"></i></button>
+      </div>
+      <div class="quick-questions">
+        <button class="quick-btn" data-question="What is a hackathon?">
+          What is a hackathon?
+        </button>
+        <button class="quick-btn" data-question="Which career suits me?">
+          Which career suits me?
+        </button>
+        <button class="quick-btn" data-question="What skills should I learn?">
+          What skills should I learn?
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <main class="main-container">
+      <!-- Home Page - FIXED: Has 'active' class for initial display -->
+      <section id="home" class="page active">
+        <div class="hero-section">
+          <div class="hero-content">
+            <h1 class="hero-title">
+              Lost in Your Career Journey?
+              <span class="highlight">We Guide You.</span>
+            </h1>
+            <p class="hero-subtitle">
+              Personalized AI guidance for students across all fields to
+              discover careers, hackathons, and build the right skills.
+            </p>
+            <div class="hero-stats">
+              <div class="stat">
+                <h3>7+</h3>
+                <p>Fields Supported</p>
+              </div>
+              <div class="stat">
+                <h3>AI-Powered</h3>
+                <p>Personal Roadmaps</p>
+              </div>
+              <div class="stat">
+                <h3>100%</h3>
+                <p>Beginner Friendly</p>
+              </div>
+            </div>
+            <div class="hero-buttons">
+              <button class="btn-primary btn-large" id="getStartedBtn">
+                <i class="fas fa-rocket"></i> Start Your Journey
+              </button>
+              <button class="btn-secondary btn-large" id="learnHackathonBtn">
+                <i class="fas fa-lightbulb"></i> Learn About Hackathons
+              </button>
+            </div>
+          </div>
+          <div class="hero-image">
+            <div class="floating-cards">
+              <div class="floating-card tech">
+                <i class="fas fa-code"></i>
+                <span>Technology</span>
+              </div>
+              <div class="floating-card medical">
+                <i class="fas fa-heartbeat"></i>
+                <span>Medical</span>
+              </div>
+              <div class="floating-card business">
+                <i class="fas fa-chart-line"></i>
+                <span>Business</span>
+              </div>
+              <div class="floating-card arts">
+                <i class="fas fa-palette"></i>
+                <span>Arts</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="problem-section">
+          <h2 class="section-title">The Problems We Solve</h2>
+          <div class="problems-grid">
+            <div class="problem-card">
+              <div class="problem-icon">
+                <i class="fas fa-question-circle"></i>
+              </div>
+              <h3>Don't Know About Hackathons</h3>
+              <p>
+                Most students have never heard of hackathons or think they're
+                only for coders.
+              </p>
+            </div>
+            <div class="problem-card">
+              <div class="problem-icon">
+                <i class="fas fa-road"></i>
+              </div>
+              <h3>Unclear Career Path</h3>
+              <p>
+                Choosing a career feels overwhelming with so many options
+                available.
+              </p>
+            </div>
+            <div class="problem-card">
+              <div class="problem-icon">
+                <i class="fas fa-random"></i>
+              </div>
+              <h3>Random Learning</h3>
+              <p>
+                Learning skills without a roadmap leads to confusion and wasted
+                time.
+              </p>
+            </div>
+            <div class="problem-card">
+              <div class="problem-icon">
+                <i class="fas fa-project-diagram"></i>
+              </div>
+              <h3>No Project Guidance</h3>
+              <p>
+                Students don't know what projects to build for their portfolios.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="fields-section">
+          <h2 class="section-title">
+            We Support <span class="highlight">All Fields</span>
+          </h2>
+          <div class="fields-grid">
+            <div class="field-card" data-field="technology">
+              <i class="fas fa-code"></i>
+              <h3>Technology</h3>
+              <p>CS, IT, Software, Data Science</p>
+            </div>
+            <div class="field-card" data-field="medical">
+              <i class="fas fa-heartbeat"></i>
+              <h3>Medical & Health</h3>
+              <p>Medicine, Nursing, Pharmacy</p>
+            </div>
+            <div class="field-card" data-field="engineering">
+              <i class="fas fa-cogs"></i>
+              <h3>Engineering</h3>
+              <p>All Engineering Disciplines</p>
+            </div>
+            <div class="field-card" data-field="architecture">
+              <i class="fas fa-drafting-compass"></i>
+              <h3>Architecture</h3>
+              <p>Design, Planning, Urban Studies</p>
+            </div>
+            <div class="field-card" data-field="business">
+              <i class="fas fa-chart-line"></i>
+              <h3>Business</h3>
+              <p>Management, Finance, Marketing</p>
+            </div>
+            <div class="field-card" data-field="arts">
+              <i class="fas fa-palette"></i>
+              <h3>Arts & Design</h3>
+              <p>Fine Arts, Design, Multimedia</p>
+            </div>
+            <div class="field-card" data-field="science">
+              <i class="fas fa-flask"></i>
+              <h3>Science & Research</h3>
+              <p>Physics, Chemistry, Biology</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Hackathon Education Page -->
+      <section id="hackathon" class="page">
+        <div class="page-header">
+          <h2><i class="fas fa-lightbulb"></i> What are Hackathons?</h2>
+          <p class="page-subtitle">
+            Demystifying hackathons for students from all backgrounds
+          </p>
+        </div>
+
+        <div class="hackathon-intro">
+          <div class="intro-card">
+            <h3><i class="fas fa-brain"></i> Simple Definition</h3>
+            <p>
+              A <strong>hackathon</strong> is an event where people collaborate
+              intensively to create projects that solve real-world problems.
+              It's not just for programmers!
+            </p>
+          </div>
+          <div class="intro-card">
+            <h3><i class="fas fa-users"></i> Who Can Participate?</h3>
+            <p>
+              <strong>Everyone!</strong> Designers, business students, medical
+              students, artists, engineers - all fields are welcome and needed.
+            </p>
+          </div>
+        </div>
+
+        <div class="hackathon-types">
+          <h3 class="section-subtitle">Hackathon Types for Different Fields</h3>
+          <div class="types-grid">
+            <div class="type-card">
+              <h4><i class="fas fa-laptop-code"></i> Tech Hackathons</h4>
+              <p>Build apps, websites, or software solutions</p>
+              <span class="tag">Common</span>
+            </div>
+            <div class="type-card">
+              <h4><i class="fas fa-heart"></i> Medical Hackathons</h4>
+              <p>Solve healthcare challenges, medical devices</p>
+              <span class="tag">Growing</span>
+            </div>
+            <div class="type-card">
+              <h4><i class="fas fa-paint-brush"></i> Design Hackathons</h4>
+              <p>UI/UX, graphics, branding challenges</p>
+              <span class="tag">Creative</span>
+            </div>
+            <div class="type-card">
+              <h4><i class="fas fa-chart-bar"></i> Business Hackathons</h4>
+              <p>Create business plans, marketing strategies</p>
+              <span class="tag">Strategic</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="benefits-section">
+          <h3 class="section-subtitle">
+            Why Hackathons Matter for Your Career
+          </h3>
+          <div class="benefits-list">
+            <div class="benefit">
+              <i class="fas fa-briefcase benefit-icon"></i>
+              <div>
+                <h4>Portfolio Building</h4>
+                <p>Create real projects to show employers</p>
+              </div>
+            </div>
+            <div class="benefit">
+              <i class="fas fa-network-wired benefit-icon"></i>
+              <div>
+                <h4>Networking</h4>
+                <p>Meet industry professionals and peers</p>
+              </div>
+            </div>
+            <div class="benefit">
+              <i class="fas fa-bolt benefit-icon"></i>
+              <div>
+                <h4>Skill Acceleration</h4>
+                <p>Learn more in 48 hours than in months</p>
+              </div>
+            </div>
+            <div class="benefit">
+              <i class="fas fa-trophy benefit-icon"></i>
+              <div>
+                <h4>Career Opportunities</h4>
+                <p>Many get jobs from hackathon performance</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-section">
+          <h3>Ready to Find Hackathons for Your Field?</h3>
+          <p>Tell us about yourself and we'll recommend suitable hackathons</p>
+          <button class="btn-primary btn-large" id="goToProfileBtn">
+            <i class="fas fa-user-plus"></i> Build Your Profile
+          </button>
+        </div>
+      </section>
+
+      <!-- Field Selection Page -->
+      <section id="field" class="page">
+        <div class="page-header">
+          <h2><i class="fas fa-compass"></i> Find Your Field</h2>
+          <p class="page-subtitle">
+            Select your field of interest for personalized guidance
+          </p>
+        </div>
+
+        <div class="field-selection-container">
+          <div class="selection-instruction">
+            <p>
+              Choose the field that matches your current studies or interests.
+              You can explore multiple fields!
+            </p>
+          </div>
+
+          <div class="fields-grid-selection">
+            <!-- Field cards will be dynamically generated here -->
+          </div>
+
+          <div class="selection-actions">
+            <button class="btn-secondary" id="skipFieldBtn">
+              <i class="fas fa-forward"></i> Skip for Now
+            </button>
+            <button class="btn-primary" id="confirmFieldBtn" disabled>
+              <i class="fas fa-check-circle"></i> Continue with Selected Field
+            </button>
+          </div>
+        </div>
+
+        <div class="field-info-panel" id="fieldInfoPanel">
+          <div class="info-content">
+            <h3 id="selectedFieldName">Select a Field to See Details</h3>
+            <p id="selectedFieldDescription">
+              Click on any field card to see career paths, skills needed, and
+              hackathon opportunities.
+            </p>
+            <div class="field-details" id="fieldDetails">
+              <!-- Dynamic content will appear here -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Profile Builder Page -->
+      <section id="profile" class="page">
+        <div class="page-header">
+          <h2><i class="fas fa-user-cog"></i> Build Your Student Profile</h2>
+          <p class="page-subtitle">
+            Help us personalize your career and hackathon guidance
+          </p>
+        </div>
+
+        <div class="profile-form-container">
+          <form id="studentProfileForm">
+            <div class="form-section">
+              <h3><i class="fas fa-graduation-cap"></i> Education Details</h3>
+
+              <div class="form-group">
+                <label for="educationLevel">
+                  <i class="fas fa-layer-group"></i> Current Education Level
+                </label>
+                <select id="educationLevel" class="form-control" required>
+                  <option value="">Select your level</option>
+                  <option value="school">High School Student</option>
+                  <option value="undergrad">Undergraduate Student</option>
+                  <option value="postgrad">Postgraduate Student</option>
+                  <option value="freshgrad">Fresh Graduate</option>
+                  <option value="working">Working Professional</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="fieldOfStudy">
+                  <i class="fas fa-book"></i> Field of Study (or Interest)
+                </label>
+                <select id="fieldOfStudy" class="form-control" required>
+                  <option value="">Select your field</option>
+                  <option value="technology">
+                    Technology & Computer Science
+                  </option>
+                  <option value="medical">Medical & Health Sciences</option>
+                  <option value="engineering">Engineering</option>
+                  <option value="architecture">Architecture & Design</option>
+                  <option value="business">Business & Management</option>
+                  <option value="arts">Arts & Creative Fields</option>
+                  <option value="science">Science & Research</option>
+                  <option value="other">Other / Undecided</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h3><i class="fas fa-heart"></i> Interests & Goals</h3>
+
+              <div class="form-group">
+                <label>
+                  <i class="fas fa-star"></i> What interests you most? (Select
+                  all that apply)
+                </label>
+                <div class="interests-grid">
+                  <label class="interest-option">
+                    <input
+                      type="checkbox"
+                      name="interests"
+                      value="problem_solving"
+                    />
+                    <span>Problem Solving</span>
+                  </label>
+                  <label class="interest-option">
+                    <input
+                      type="checkbox"
+                      name="interests"
+                      value="creativity"
+                    />
+                    <span>Creativity & Design</span>
+                  </label>
+                  <label class="interest-option">
+                    <input type="checkbox" name="interests" value="analysis" />
+                    <span>Data Analysis</span>
+                  </label>
+                  <label class="interest-option">
+                    <input
+                      type="checkbox"
+                      name="interests"
+                      value="leadership"
+                    />
+                    <span>Leadership & Management</span>
+                  </label>
+                  <label class="interest-option">
+                    <input type="checkbox" name="interests" value="research" />
+                    <span>Research & Innovation</span>
+                  </label>
+                  <label class="interest-option">
+                    <input type="checkbox" name="interests" value="helping" />
+                    <span>Helping People</span>
+                  </label>
+                  <label class="interest-option">
+                    <input
+                      type="checkbox"
+                      name="interests"
+                      value="technology"
+                    />
+                    <span>Technology & Coding</span>
+                  </label>
+                  <label class="interest-option">
+                    <input
+                      type="checkbox"
+                      name="interests"
+                      value="entrepreneurship"
+                    />
+                    <span>Entrepreneurship</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="primaryGoal">
+                  <i class="fas fa-bullseye"></i> Primary Goal
+                </label>
+                <select id="primaryGoal" class="form-control" required>
+                  <option value="">What's your main goal?</option>
+                  <option value="career">Find a Career Path</option>
+                  <option value="skills">Learn New Skills</option>
+                  <option value="hackathon">Participate in Hackathons</option>
+                  <option value="portfolio">Build a Portfolio</option>
+                  <option value="startup">Start a Startup</option>
+                  <option value="networking">Network with Professionals</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="timeCommitment">
+                  <i class="fas fa-clock"></i> Weekly Time Commitment
+                </label>
+                <select id="timeCommitment" class="form-control" required>
+                  <option value="">How much time can you dedicate?</option>
+                  <option value="low">1-5 hours (Busy Schedule)</option>
+                  <option value="medium">5-10 hours (Moderate)</option>
+                  <option value="high">10-20 hours (Dedicated)</option>
+                  <option value="full">20+ hours (Full Focus)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h3><i class="fas fa-cogs"></i> Current Skills</h3>
+              <div class="form-group">
+                <p>Rate your current skill level in these areas:</p>
+                <div class="skill-rating">
+                  <div class="skill-item">
+                    <span>Technical Skills</span>
+                    <div class="rating-stars" data-skill="technical">
+                      <i class="far fa-star" data-value="1"></i>
+                      <i class="far fa-star" data-value="2"></i>
+                      <i class="far fa-star" data-value="3"></i>
+                      <i class="far fa-star" data-value="4"></i>
+                      <i class="far fa-star" data-value="5"></i>
+                    </div>
+                  </div>
+                  <div class="skill-item">
+                    <span>Creativity</span>
+                    <div class="rating-stars" data-skill="creativity">
+                      <i class="far fa-star" data-value="1"></i>
+                      <i class="far fa-star" data-value="2"></i>
+                      <i class="far fa-star" data-value="3"></i>
+                      <i class="far fa-star" data-value="4"></i>
+                      <i class="far fa-star" data-value="5"></i>
+                    </div>
+                  </div>
+                  <div class="skill-item">
+                    <span>Problem Solving</span>
+                    <div class="rating-stars" data-skill="problem_solving">
+                      <i class="far fa-star" data-value="1"></i>
+                      <i class="far fa-star" data-value="2"></i>
+                      <i class="far fa-star" data-value="3"></i>
+                      <i class="far fa-star" data-value="4"></i>
+                      <i class="far fa-star" data-value="5"></i>
+                    </div>
+                  </div>
+                  <div class="skill-item">
+                    <span>Communication</span>
+                    <div class="rating-stars" data-skill="communication">
+                      <i class="far fa-star" data-value="1"></i>
+                      <i class="far fa-star" data-value="2"></i>
+                      <i class="far fa-star" data-value="3"></i>
+                      <i class="far fa-star" data-value="4"></i>
+                      <i class="far fa-star" data-value="5"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="btn-secondary" id="clearFormBtn">
+                <i class="fas fa-redo"></i> Clear Form
+              </button>
+              <button type="submit" class="btn-primary">
+                <i class="fas fa-magic"></i> Generate AI Recommendations
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- Dashboard Page -->
+      <section id="dashboard" class="page">
+        <div class="page-header">
+          <h2><i class="fas fa-tachometer-alt"></i> Your Career Dashboard</h2>
+          <p class="page-subtitle">
+            Personalized insights and progress tracking
+          </p>
+        </div>
+
+        <div class="dashboard-container">
+          <div class="dashboard-sidebar">
+            <div class="user-profile-card">
+              <div class="profile-header">
+                <div class="profile-avatar">
+                  <i class="fas fa-user-graduate"></i>
+                </div>
+                <div class="profile-info">
+                  <h4 id="dashboardName">Student</h4>
+                  <p id="dashboardField">Field: Not selected</p>
+                </div>
+              </div>
+              <div class="profile-details">
+                <div class="detail-item">
+                  <i class="fas fa-graduation-cap"></i>
+                  <span id="dashboardLevel">Education: Not set</span>
+                </div>
+                <div class="detail-item">
+                  <i class="fas fa-bullseye"></i>
+                  <span id="dashboardGoal">Goal: Not set</span>
+                </div>
+                <div class="detail-item">
+                  <i class="fas fa-clock"></i>
+                  <span id="dashboardTime">Time: Not set</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="quick-stats">
+              <h4><i class="fas fa-chart-line"></i> Quick Stats</h4>
+              <div class="stats-grid">
+                <div class="stat-item">
+                  <div class="stat-value" id="progressPercentage">0%</div>
+                  <div class="stat-label">Roadmap Progress</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value" id="skillsCount">0</div>
+                  <div class="stat-label">Skills to Learn</div>
+                </div>
+                <div class="stat-item">
+                  <div class="stat-value" id="projectIdeas">0</div>
+                  <div class="stat-label">Project Ideas</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="quick-actions">
+              <h4><i class="fas fa-bolt"></i> Quick Actions</h4>
+              <button class="action-btn" id="generateRoadmapBtn">
+                <i class="fas fa-road"></i> Generate AI Roadmap
+              </button>
+              <button class="action-btn" id="getProjectIdeasBtn">
+                <i class="fas fa-lightbulb"></i> Get Project Ideas
+              </button>
+              <button class="action-btn" id="findHackathonsBtn">
+                <i class="fas fa-trophy"></i> Find Hackathons
+              </button>
+            </div>
+          </div>
+
+          <div class="dashboard-main">
+            <div class="dashboard-grid">
+              <div class="dashboard-card main-card">
+                <div class="card-header">
+                  <h3>
+                    <i class="fas fa-robot"></i> AI Career Recommendations
+                  </h3>
+                  <button class="refresh-btn" id="refreshRecommendations">
+                    <i class="fas fa-sync-alt"></i>
+                  </button>
+                </div>
+                <div class="card-content">
+                  <div id="aiRecommendations">
+                    <p class="empty-state">
+                      <i class="fas fa-info-circle"></i>
+                      Complete your profile to get personalized AI career
+                      recommendations
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="dashboard-card">
+                <div class="card-header">
+                  <h3><i class="fas fa-tasks"></i> Current Roadmap</h3>
+                </div>
+                <div class="card-content">
+                  <div id="currentRoadmap">
+                    <p class="empty-state">
+                      <i class="fas fa-road"></i>
+                      No roadmap generated yet
+                    </p>
+                  </div>
+                  <button
+                    class="btn-secondary btn-small"
+                    id="viewFullRoadmapBtn"
+                  >
+                    View Full Roadmap →
+                  </button>
+                </div>
+              </div>
+
+              <div class="dashboard-card">
+                <div class="card-header">
+                  <h3><i class="fas fa-lightbulb"></i> Project Ideas</h3>
+                </div>
+                <div class="card-content">
+                  <div id="suggestedProjects">
+                    <p class="empty-state">
+                      <i class="fas fa-lightbulb"></i>
+                      Get AI-generated project ideas
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="dashboard-card">
+                <div class="card-header">
+                  <h3>
+                    <i class="fas fa-calendar-alt"></i> Upcoming Hackathons
+                  </h3>
+                </div>
+                <div class="card-content">
+                  <div id="hackathonSuggestions">
+                    <div class="hackathon-item">
+                      <i class="fas fa-calendar"></i>
+                      <div>
+                        <h4>Complete your profile</h4>
+                        <p>To see hackathons matching your field</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="dashboard-card progress-card">
+                <div class="card-header">
+                  <h3><i class="fas fa-chart-bar"></i> Learning Progress</h3>
+                </div>
+                <div class="card-content">
+                  <div class="progress-tracker">
+                    <div class="progress-bar">
+                      <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <div class="progress-text">
+                      <span>Beginner</span>
+                      <span id="currentLevel">Not Started</span>
+                      <span>Advanced</span>
+                    </div>
+                  </div>
+                  <div class="motivation-message" id="motivationMessage">
+                    Start your journey today! Every expert was once a beginner.
+                  </div>
+                </div>
+              </div>
+
+              <div class="dashboard-card">
+                <div class="card-header">
+                  <h3><i class="fas fa-book"></i> Recommended Skills</h3>
+                </div>
+                <div class="card-content">
+                  <div class="skills-list" id="recommendedSkills">
+                    <p class="empty-state">
+                      <i class="fas fa-book"></i>
+                      Skills will appear here
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI Roadmap Page -->
+      <section id="roadmap" class="page">
+        <div class="page-header">
+          <h2><i class="fas fa-road"></i> Your AI Learning Roadmap</h2>
+          <p class="page-subtitle">Step-by-step personalized learning path</p>
+        </div>
+
+        <div class="roadmap-controls">
+          <button class="btn-primary" id="generateNewRoadmapBtn">
+            <i class="fas fa-plus"></i> Generate New Roadmap
+          </button>
+          <div class="roadmap-options">
+            <select id="roadmapDuration" class="form-control">
+              <option value="3months">3 Months Plan</option>
+              <option value="6months">6 Months Plan</option>
+              <option value="1year">1 Year Plan</option>
+            </select>
+            <select id="roadmapDifficulty" class="form-control">
+              <option value="beginner">Beginner</option>
+              <option value="intermediate">Intermediate</option>
+              <option value="advanced">Advanced</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="roadmap-container">
+          <div class="roadmap-timeline">
+            <div class="timeline-phase" id="phaseBeginner">
+              <div class="phase-header">
+                <div class="phase-icon">
+                  <i class="fas fa-seedling"></i>
+                </div>
+                <h3>Phase 1: Beginner Foundation</h3>
+                <span class="phase-duration">Month 1-2</span>
+              </div>
+              <div class="phase-content" id="beginnerContent">
+                <p class="empty-phase">
+                  Complete your profile to generate roadmap
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-phase" id="phaseIntermediate">
+              <div class="phase-header">
+                <div class="phase-icon">
+                  <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Phase 2: Intermediate Building</h3>
+                <span class="phase-duration">Month 3-4</span>
+              </div>
+              <div class="phase-content" id="intermediateContent">
+                <p class="empty-phase">
+                  Your intermediate skills will appear here
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-phase" id="phaseAdvanced">
+              <div class="phase-header">
+                <div class="phase-icon">
+                  <i class="fas fa-trophy"></i>
+                </div>
+                <h3>Phase 3: Advanced Mastery</h3>
+                <span class="phase-duration">Month 5-6</span>
+              </div>
+              <div class="phase-content" id="advancedContent">
+                <p class="empty-phase">
+                  Advanced topics and projects will appear here
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-phase" id="phaseProjects">
+              <div class="phase-header">
+                <div class="phase-icon">
+                  <i class="fas fa-rocket"></i>
+                </div>
+                <h3>Phase 4: Project & Hackathon</h3>
+                <span class="phase-duration">Month 6+</span>
+              </div>
+              <div class="phase-content" id="projectsContent">
+                <p class="empty-phase">
+                  Project ideas and hackathon preparation
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="roadmap-actions">
+            <button class="btn-secondary" id="printRoadmapBtn">
+              <i class="fas fa-print"></i> Print Roadmap
+            </button>
+            <button class="btn-primary" id="saveRoadmapBtn">
+              <i class="fas fa-save"></i> Save to Dashboard
+            </button>
+            <button class="btn-secondary" id="shareRoadmapBtn">
+              <i class="fas fa-share-alt"></i> Share
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- AI Project Ideas Page -->
+      <section id="project" class="page">
+        <div class="page-header">
+          <h2><i class="fas fa-lightbulb"></i> AI Project & Hackathon Ideas</h2>
+          <p class="page-subtitle">
+            Personalized project suggestions for your field
+          </p>
+        </div>
+
+        <div class="project-controls">
+          <div class="filter-options">
+            <select id="projectFieldFilter" class="form-control">
+              <option value="all">All Fields</option>
+              <option value="technology">Technology</option>
+              <option value="medical">Medical</option>
+              <option value="engineering">Engineering</option>
+              <option value="business">Business</option>
+              <option value="arts">Arts & Design</option>
+              <option value="science">Science</option>
+            </select>
+            <select id="projectDifficultyFilter" class="form-control">
+              <option value="all">All Difficulties</option>
+              <option value="beginner">Beginner</option>
+              <option value="intermediate">Intermediate</option>
+              <option value="advanced">Advanced</option>
+            </select>
+            <button class="btn-primary" id="generateProjectIdeasBtn">
+              <i class="fas fa-magic"></i> Generate Ideas
+            </button>
+          </div>
+        </div>
+
+        <div class="project-ideas-container">
+          <div class="project-categories">
+            <div class="category-tabs">
+              <button class="category-tab active" data-category="all">
+                All Projects
+              </button>
+              <button class="category-tab" data-category="hackathon">
+                Hackathon Ready
+              </button>
+              <button class="category-tab" data-category="portfolio">
+                Portfolio Projects
+              </button>
+              <button class="category-tab" data-category="research">
+                Research Projects
+              </button>
+              <button class="category-tab" data-category="startup">
+                Startup Ideas
+              </button>
+            </div>
+          </div>
+
+          <div class="project-grid" id="projectGrid">
+            <!-- Project cards will be dynamically generated here -->
+            <div class="empty-projects">
+              <i class="fas fa-lightbulb fa-3x"></i>
+              <h3>No Project Ideas Yet</h3>
+              <p>
+                Click "Generate Ideas" to get AI-powered project suggestions for
+                your field
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-generator">
+          <h3><i class="fas fa-robot"></i> Custom Project Generator</h3>
+          <div class="generator-form">
+            <div class="form-group">
+              <label for="projectTopic">
+                <i class="fas fa-edit"></i> What problem do you want to solve?
+              </label>
+              <input
+                type="text"
+                id="projectTopic"
+                class="form-control"
+                placeholder="e.g., healthcare access, environmental monitoring, education tools..."
+              />
+            </div>
+            <div class="form-group-inline">
+              <div>
+                <label>Field</label>
+                <select id="customProjectField" class="form-control">
+                  <option value="technology">Technology</option>
+                  <option value="medical">Medical</option>
+                  <option value="engineering">Engineering</option>
+                  <option value="business">Business</option>
+                  <option value="arts">Arts & Design</option>
+                  <option value="science">Science</option>
+                </select>
+              </div>
+              <div>
+                <label>Difficulty</label>
+                <select id="customProjectDifficulty" class="form-control">
+                  <option value="beginner">Beginner</option>
+                  <option value="intermediate">Intermediate</option>
+                  <option value="advanced">Advanced</option>
+                </select>
+              </div>
+              <div>
+                <label>Time Estimate</label>
+                <select id="customProjectTime" class="form-control">
+                  <option value="1week">1 Week</option>
+                  <option value="1month">1 Month</option>
+                  <option value="3months">3 Months</option>
+                  <option value="6months">6 Months</option>
+                </select>
+              </div>
+            </div>
+            <button class="btn-primary btn-large" id="generateCustomProjectBtn">
+              <i class="fas fa-wand-magic-sparkles"></i> Generate Custom Project
+              Idea
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Progress Tracking Modal -->
+    <div class="modal" id="progressModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3><i class="fas fa-trophy"></i> Progress Update</h3>
+          <button class="close-modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p id="progressMessage"></p>
+          <div class="progress-update">
+            <div class="progress-circle">
+              <svg width="100" height="100">
+                <circle class="progress-bg" cx="50" cy="50" r="40"></circle>
+                <circle class="progress-fg" cx="50" cy="50" r="40"></circle>
+              </svg>
+              <div class="progress-text">0%</div>
+            </div>
+            <div class="progress-details">
+              <h4>Your Journey</h4>
+              <p>Keep going! Every step brings you closer to your goals.</p>
+              <div class="milestone-list">
+                <!-- Milestones will be added here -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn-secondary close-modal">Close</button>
+          <button class="btn-primary" id="continueJourneyBtn">
+            Continue Journey
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <div class="logo">
+            <span class="logo-icon">🚀</span>
+            <h3>SkillPath<span class="logo-highlight">AI</span></h3>
+          </div>
+          <p>
+            Guiding students from all fields to discover careers, hackathons,
+            and build the right skills.
+          </p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-discord"></i></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4>Platform</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#hackathon">Hackathon Guide</a></li>
+            <li><a href="#field">Field Selection</a></li>
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#roadmap">AI Roadmap</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Fields</h4>
+          <ul>
+            <li><a href="#" data-field="technology">Technology</a></li>
+            <li><a href="#" data-field="medical">Medical</a></li>
+            <li><a href="#" data-field="engineering">Engineering</a></li>
+            <li><a href="#" data-field="business">Business</a></li>
+            <li><a href="#" data-field="arts">Arts & Design</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="#" id="helpChatBtn">AI Assistant</a></li>
+            <li><a href="#profile">Build Profile</a></li>
+            <li><a href="#project">Project Ideas</a></li>
+            <li><button id="resetDataBtn">Reset Data</button></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          © 2024 SkillPath AI. Built for students worldwide. This is a demo
+          platform.
+        </p>
+      </div>
+    </footer>
+
+    <!-- FIXED: JS script link with correct path -->
+    <script src="/js/script.js"></script>
+  </body>
+</html>
